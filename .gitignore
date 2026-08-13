@@ -1,0 +1,14 @@
+# Raw source assets — never published (may contain unscrubbed originals / EXIF).
+Assets/
+assets/
+Photo Portfolio.zip
+
+# Local build output
+dist/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Node (Playwright test scripts live outside the repo, in scratch space)
+node_modules/

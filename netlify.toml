@@ -1,0 +1,36 @@
+# Netlify config — free host that works well for a first static site.
+# Docs: https://docs.netlify.com/
+#
+# Connect this repo (or drag-and-drop the dist/ folder after pack_deploy.sh).
+# The build packs only public files so Assets/ and tools/ never go live.
+
+[build]
+  command = "bash tools/pack_deploy.sh"
+  publish = "dist"
+
+# Forms need HTML with data-netlify in the published files (contact.html has it).
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Fonts from Google; form posts to same origin (Netlify Forms) or Formspree.
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

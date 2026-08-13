@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Book a Shoot | RevSnap Media</title>
+<meta name="description" content="Book an owner shoot or send a commercial and fleet photography inquiry to RevSnap Media, based in Provo, Utah.">
+<meta name="theme-color" content="#08080a">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RevSnap Media">
+<meta property="og:title" content="Contact — RevSnap Media">
+<meta property="og:description" content="Book an owner shoot, or send a commercial and fleet inquiry.">
+<link rel="canonical" href="https://revsnapmedia.com/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ── Nav ────────────────────────────────────────────────────────────── -->
+<header class="nav" data-nav>
+  <div class="nav__inner">
+    <a class="wordmark" href="index.html"><b>RevSnap</b><span>Media</span></a>
+
+    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav__links" id="nav-menu" data-nav-menu aria-label="Primary">
+      <a class="nav__link" href="portfolio.html">Portfolio</a>
+      <a class="nav__link" href="services.html">Services</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html" aria-current="page">Contact</a>
+      <a class="btn btn--primary nav__cta" href="contact.html">Book a shoot</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── Intro ────────────────────────────────────────────────────────── -->
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1 class="h1 reveal">Let's put your car in better light.</h1>
+      <!-- COPY: draft -->
+      <p class="lead page-intro__lead reveal" data-delay="1">Two paths, two forms — pick whichever fits and I'll get back to you directly.</p>
+
+      <div class="path-chooser reveal" data-delay="2">
+        <a href="#owner-shoot">
+          <p class="kicker">For owners</p>
+          <p class="h3" style="margin-bottom:var(--s-2)">Book a shoot</p>
+          <p class="small muted">Single-car sessions, satisfaction-based pricing.</p>
+        </a>
+        <a href="#commercial">
+          <p class="kicker">For business</p>
+          <p class="h3" style="margin-bottom:var(--s-2)">Commercial &amp; fleet</p>
+          <p class="small muted">Dealerships, rental fleets, shops — custom-quoted.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Owner shoot form ─────────────────────────────────────────────── -->
+  <section class="section section--tight" id="owner-shoot">
+    <div class="wrap">
+      <div class="split" style="display:grid;grid-template-columns:1fr;gap:clamp(2rem,5vw,4rem)">
+        <div class="reveal">
+          <p class="eyebrow eyebrow--plain" style="color:var(--signal)">For owners</p>
+          <h2 class="h2" style="margin-bottom:var(--s-5)">Book a shoot</h2>
+          <!-- COPY: draft -->
+          <p class="lead measure" style="margin-bottom:var(--s-5)">Tell me about the car and when you're hoping to shoot. I'll follow up to lock in a location and a time the light will cooperate.</p>
+          <p class="lead small" style="color:var(--fog-400)">See <a class="link" href="services.html#owner-shoots" style="display:inline-flex">how it works &amp; pricing <span class="arrow" aria-hidden="true">→</span></a></p>
+        </div>
+
+        <div class="reveal" data-delay="1">
+          <form name="owner-shoot" method="POST" action="thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="owner-shoot">
+            <input type="hidden" name="_subject" value="RevSnap Media — owner shoot inquiry">
+
+            <p class="hp-field" aria-hidden="true">
+              <label>Leave this field blank
+                <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+              </label>
+            </p>
+
+            <div class="form-field">
+              <label for="owner-name">Name</label>
+              <input type="text" id="owner-name" name="name" autocomplete="name" required maxlength="200">
+            </div>
+
+            <div class="form-field">
+              <label for="owner-email">Email</label>
+              <input type="email" id="owner-email" name="email" autocomplete="email" required maxlength="254">
+            </div>
+
+            <div class="form-field form-field--optional">
+              <label for="owner-phone">Phone <span>(optional)</span></label>
+              <input type="tel" id="owner-phone" name="phone" autocomplete="tel" maxlength="30">
+            </div>
+
+            <div class="form-field form-field--optional">
+              <label for="owner-car">Car <span>(make, model, color)</span></label>
+              <input type="text" id="owner-car" name="car" placeholder="e.g. 2023 BMW M4, black" maxlength="200">
+            </div>
+
+            <div class="form-field">
+              <label for="owner-timeframe">Preferred timeframe</label>
+              <select id="owner-timeframe" name="timeframe">
+                <option value="flexible">Flexible / no rush</option>
+                <option value="this-week">This week</option>
+                <option value="this-month">This month</option>
+                <option value="specific-date">I have a specific date in mind</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="owner-message">Message</label>
+              <textarea id="owner-message" name="message" required maxlength="5000" placeholder="Anything about the car, the look you want, or a location in mind."></textarea>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">Send booking request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Commercial & fleet form ──────────────────────────────────────── -->
+  <section class="section section--tight section--alt" id="commercial">
+    <div class="wrap">
+      <div class="split" style="display:grid;grid-template-columns:1fr;gap:clamp(2rem,5vw,4rem)">
+        <div class="reveal">
+          <p class="eyebrow eyebrow--plain" style="color:var(--signal)">For business</p>
+          <h2 class="h2" style="margin-bottom:var(--s-5)">Commercial &amp; fleet inquiries</h2>
+          <!-- COPY: draft -->
+          <p class="lead measure" style="margin-bottom:var(--s-5)">Dealerships, rental fleets, and shops needing a content pipeline they can plan around. Tell me about the fleet and the cadence you need — every account gets a quote built around its own volume.</p>
+          <p class="lead small" style="color:var(--fog-400)">See <a class="link" href="services.html#commercial" style="display:inline-flex">what's included <span class="arrow" aria-hidden="true">→</span></a></p>
+        </div>
+
+        <div class="reveal" data-delay="1">
+          <form name="commercial-inquiry" method="POST" action="thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="commercial-inquiry">
+            <input type="hidden" name="_subject" value="RevSnap Media — commercial inquiry">
+
+            <p class="hp-field" aria-hidden="true">
+              <label>Leave this field blank
+                <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+              </label>
+            </p>
+
+            <div class="form-field">
+              <label for="biz-name">Name</label>
+              <input type="text" id="biz-name" name="name" autocomplete="name" required maxlength="200">
+            </div>
+
+            <div class="form-field">
+              <label for="biz-company">Company</label>
+              <input type="text" id="biz-company" name="company" autocomplete="organization" required maxlength="200">
+            </div>
+
+            <div class="form-field">
+              <label for="biz-email">Email</label>
+              <input type="email" id="biz-email" name="email" autocomplete="email" required maxlength="254">
+            </div>
+
+            <div class="form-field form-field--optional">
+              <label for="biz-phone">Phone <span>(optional)</span></label>
+              <input type="tel" id="biz-phone" name="phone" autocomplete="tel" maxlength="30">
+            </div>
+
+            <div class="form-field">
+              <label for="biz-type">Business type</label>
+              <select id="biz-type" name="business_type">
+                <option value="dealership">Dealership</option>
+                <option value="rental-fleet">Rental fleet</option>
+                <option value="shop">Detailer / wrap / tuner shop</option>
+                <option value="club-event">Car club or event</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--optional">
+              <label for="biz-volume">Fleet size / volume <span>(optional)</span></label>
+              <input type="text" id="biz-volume" name="volume" placeholder="e.g. ~15 vehicles, weekly turnover" maxlength="200">
+            </div>
+
+            <div class="form-field">
+              <label for="biz-message">Message</label>
+              <textarea id="biz-message" name="message" required maxlength="5000" placeholder="What you need photographed, how often, and your target turnaround."></textarea>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">Request commercial rates</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Direct contact ───────────────────────────────────────────────── -->
+  <section class="section section--tight">
+    <div class="wrap" style="text-align:center">
+      <p class="eyebrow eyebrow--plain reveal" style="justify-content:center">Prefer email?</p>
+      <p class="h3 reveal" data-delay="1"><a class="link" href="mailto:revsnapmedia@gmail.com" style="display:inline-flex">revsnapmedia@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<!-- ── Footer ──────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="wordmark" href="index.html"><b>RevSnap</b><span>Media</span></a>
+        <!-- COPY: draft -->
+        <p class="footer__blurb">Automotive photography by Clark Farmer. Based in Provo, Utah — working across Utah County and the Salt Lake Valley.</p>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="portfolio.html">Portfolio</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <nav class="footer__nav" aria-label="Contact">
+          <a href="contact.html">Book a shoot</a>
+          <a href="contact.html#commercial">Commercial &amp; fleet</a>
+          <a href="https://www.instagram.com/revsnapmedia/" rel="noopener me">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span data-year>2026</span> RevSnap Media</p>
+      <p>Provo · Orem · Lehi · Salt Lake City</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site-config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
