@@ -16,8 +16,7 @@ plain `pip install` (PEP 668), so this project keeps one in tools/.venv:
     tools/.venv/bin/pip install pillow-avif-plugin
     tools/.venv/bin/python tools/prep_images.py
 
-Run it any other way and it will stop rather than silently emit a WebP-only
-set — which is exactly what happened between Phase 1 and Phase 6.
+Run it any other way and it will stop rather than silently emit a WebP-only set.
 """
 import sys
 from pathlib import Path
@@ -72,7 +71,6 @@ for shoot_dir in sorted(SRC.iterdir()):
     )
 
 total_written = 0
-failures = []
 for shoot_name, files in all_images.items():
     shoot_out = OUT / shoot_name
     shoot_out.mkdir(parents=True, exist_ok=True)
@@ -101,8 +99,6 @@ for shoot_name, files in all_images.items():
                 # every <picture> on the site if a file were ever added.
                 slug = path.stem if path.stem.isdigit() else f"{i:03d}"
 
-                # No try/except on any of these. A format that fails to write
-                # must stop the run, not leave the site half a format short.
                 sized.save(shoot_out / f"{slug}-{label}.jpg",
                            "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
                 sized.save(shoot_out / f"{slug}-{label}.webp",
@@ -116,13 +112,7 @@ for shoot_name, files in all_images.items():
                 print(f"  ✓ {i}/{len(files)}")
 
         except Exception as e:
-            print(f"  ✗ {path.name}: {e}")
-            failures.append(f"{shoot_name}/{path.name}: {e}")
+            sys.exit(f"  ✗ {shoot_name}/{path.name}: {e}")
 
 print(f"\n✓ Total: {total_written} sized images written to images/ (×3 formats)")
-if failures:
-    print(f"\n✗ {len(failures)} source images failed:")
-    for f in failures:
-        print(f"    {f}")
-    sys.exit(1)
 print("  Next: python3 tools/scrub_exif.py")

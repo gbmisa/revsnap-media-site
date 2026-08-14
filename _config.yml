@@ -1,0 +1,12 @@
+# GitHub Pages still serves the branch root as a preview. Exclude everything
+# that pack_deploy.sh would strip so PLAN.md, CLAUDE.md, content/, and tools/
+# are not web-reachable on the preview host.
+exclude:
+  - Assets
+  - assets
+  - content
+  - tools
+  - PLAN.md
+  - CLAUDE.md
+  - README.md
+  - netlify.toml

@@ -12,14 +12,14 @@ mkdir -p "$DIST"
 cp "$ROOT"/*.html "$DIST/"
 cp -R "$ROOT/css" "$ROOT/js" "$ROOT/images" "$DIST/"
 
-for f in robots.txt sitemap.xml _headers _redirects favicon.ico; do
+for f in robots.txt sitemap.xml _headers _redirects favicon.ico favicon.svg apple-touch-icon.png; do
   if [[ -f "$ROOT/$f" ]]; then
     cp "$ROOT/$f" "$DIST/"
   fi
 done
 
-# Never ship source-only or private material
-rm -rf "$DIST/Assets" "$DIST/tools" "$DIST/content" "$DIST/.claude" 2>/dev/null || true
+# Never ship source-only or private material. Bicycles are processed but unused.
+rm -rf "$DIST/Assets" "$DIST/tools" "$DIST/content" "$DIST/.claude" "$DIST/images/bicycles" 2>/dev/null || true
 
 echo "Deploy bundle ready: $DIST"
 du -sh "$DIST" | awk '{print "  size:", $1}'

@@ -42,6 +42,12 @@
         toggle.focus();
       }
     });
+    var wideNav = window.matchMedia("(min-width: 861px)");
+    var onWide = function (e) {
+      if (e.matches) setOpen(false);
+    };
+    if (wideNav.addEventListener) wideNav.addEventListener("change", onWide);
+    else if (wideNav.addListener) wideNav.addListener(onWide);
   }
 
   /* ---- Scroll reveals -------------------------------------------------- */
@@ -90,9 +96,9 @@
       limit = plate.parentElement ? plate.parentElement.offsetHeight : 0;
     };
     var enable = function () {
+      window.removeEventListener("scroll", request);
       if (reduceMotion.matches || !wide.matches) {
         plate.style.transform = "";
-        window.removeEventListener("scroll", request);
         return;
       }
       measure();
@@ -105,9 +111,48 @@
     if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", enable);
   }
 
-  /* ---- Current year ---------------------------------------------------- */
+  /* ---- Current year + stamped contact --------------------------------- */
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  var siteEmail = (window.SITE && SITE.email) || "";
+  if (siteEmail) {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-email]"), function (el) {
+      el.setAttribute("href", "mailto:" + siteEmail);
+      if (el.childNodes.length === 1 && el.textContent.indexOf("@") !== -1) {
+        el.textContent = siteEmail;
+      }
+    });
+  }
+
+  /* GitHub Pages / local preview have no Netlify Forms sink. Don't fake a
+     successful booking — fall back to mailto so the message still reaches Clark. */
+  var formHost = window.location.hostname;
+  var formsLive = formHost === "revsnapmedia.com" ||
+    formHost === "www.revsnapmedia.com" ||
+    /\.netlify\.app$/.test(formHost);
+  if (!formsLive) {
+    Array.prototype.forEach.call(document.querySelectorAll("form[data-netlify]"), function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = siteEmail || "revsnapmedia@gmail.com";
+        var subjectEl = form.querySelector("[name=_subject]");
+        var subject = (subjectEl && subjectEl.value) || "RevSnap Media inquiry";
+        var parts = [];
+        Array.prototype.forEach.call(form.elements, function (el) {
+          if (!el.name || el.disabled) return;
+          if (el.name === "bot-field" || el.name === "form-name" || el.name === "_subject") return;
+          if (el.type === "submit" || el.type === "button") return;
+          var value = (el.value || "").trim();
+          if (!value) return;
+          parts.push(el.name + ": " + value);
+        });
+        window.location.href = "mailto:" + email +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(parts.join("\n"));
+      });
+    });
+  }
 
   /* ---- Portfolio sub-filters (Cars: Exotics / Builds / Events) --------- */
   Array.prototype.forEach.call(document.querySelectorAll(".filter-bar"), function (bar) {

@@ -15,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "js" / "site-config.js"
+# 404 keeps the homepage canonical on purpose.
 PAGES = {
     "index.html": "/",
     "portfolio.html": "/portfolio.html",
@@ -22,7 +23,15 @@ PAGES = {
     "about.html": "/about.html",
     "contact.html": "/contact.html",
     "thanks.html": "/thanks.html",
+    "404.html": "/",
 }
+SITEMAP = [
+    ("/", "1.0"),
+    ("/portfolio.html", "0.9"),
+    ("/services.html", "0.8"),
+    ("/about.html", "0.7"),
+    ("/contact.html", "0.8"),
+]
 OG_IMAGE = "/images/cars/007-1600.jpg"
 
 
@@ -51,14 +60,21 @@ def write_config_url(url: str) -> None:
     CONFIG.write_text(new, encoding="utf-8")
 
 
-def upsert_meta(html: str, prop: str, content: str) -> str:
-    pattern = rf'(<meta\s+property="{re.escape(prop)}"\s+content=")[^"]*(")'
+def upsert_attr(html: str, attr: str, key: str, content: str) -> str:
+    pattern = rf'(<meta\s+{attr}="{re.escape(key)}"\s+content=")[^"]*(")'
     if re.search(pattern, html):
         return re.sub(pattern, rf"\1{content}\2", html, count=1)
-    tag = f'<meta property="{prop}" content="{content}">'
+    tag = f'<meta {attr}="{key}" content="{content}">'
     if re.search(r'<meta\s+property="og:type"', html):
         return re.sub(
             r'(<meta\s+property="og:type"[^>]*>)',
+            rf"\1\n{tag}",
+            html,
+            count=1,
+        )
+    if re.search(r'<meta\s+name="robots"', html):
+        return re.sub(
+            r'(<meta\s+name="robots"[^>]*>)',
             rf"\1\n{tag}",
             html,
             count=1,
@@ -87,19 +103,38 @@ def upsert_canonical(html: str, href: str) -> str:
     )
 
 
+def rewrite_json_ld(html: str, base: str, og_image: str) -> str:
+    if '"@type": "ProfessionalService"' not in html:
+        return html
+    html = re.sub(
+        r'("image":\s*")[^"]*(")',
+        rf"\1{og_image}\2",
+        html,
+        count=1,
+    )
+    if re.search(r'"url":\s*"https?://', html):
+        html = re.sub(
+            r'("url":\s*")[^"]*(")',
+            rf"\1{base}\2",
+            html,
+            count=1,
+        )
+    else:
+        html = re.sub(
+            r'("name":\s*"RevSnap Media",)',
+            rf'\1\n  "url": "{base}",',
+            html,
+            count=1,
+        )
+    return html
+
+
 def write_sitemap(base: str) -> None:
-    entries = [
-        ("/", "1.0"),
-        ("/portfolio.html", "0.9"),
-        ("/services.html", "0.9"),
-        ("/about.html", "0.7"),
-        ("/contact.html", "0.8"),
-    ]
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    for path, prio in entries:
+    for path, prio in SITEMAP:
         loc = f"{base}/" if path == "/" else f"{base}{path}"
         lines += [
             "  <url>",
@@ -141,9 +176,11 @@ def main() -> None:
             continue
         html = page.read_text(encoding="utf-8")
         purl = page_url(url, path)
-        html = upsert_meta(html, "og:url", purl)
-        html = upsert_meta(html, "og:image", og_image)
+        html = upsert_attr(html, "property", "og:url", purl)
+        html = upsert_attr(html, "property", "og:image", og_image)
+        html = upsert_attr(html, "name", "twitter:image", og_image)
         html = upsert_canonical(html, purl)
+        html = rewrite_json_ld(html, url, og_image)
         page.write_text(html, encoding="utf-8")
         print(f"  updated {name}")
 

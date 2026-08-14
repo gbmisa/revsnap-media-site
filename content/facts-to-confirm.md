@@ -1,27 +1,24 @@
 # Facts the site currently asserts — needs Clark's confirmation
 
 **Created:** 2026-08-13 (Phase 5, Opus 5)
+**Updated:** 2026-08-13 — review fixes pulled the four invented SLAs/license
+grants off the live pages. Numbers below are what we *want* to put back once
+Clark confirms them.
 
-PLAN.md Phase 5 assumed a "real facts" file would exist before copy polish. It
-didn't, so the copy was finalized against the numbers earlier phases invented.
-Those numbers now read as **firm commercial promises on a live site**. Every one
-below is currently published. Clark either confirms it or it changes.
+## Service commitments
 
-## Service commitments the site promises
+| Claim | Status |
+|---|---|
+| **First edits back within 48 hours** | **Invented Phase 2.** Removed from live copy 2026-08-13. Pages now say “while the shoot is still fresh.” Restore the number in one place (then stamp it) once Clark will hold it. |
+| **25–40 fully edited frames** | **Invented Phase 2.** Removed. Live copy says “a full edited gallery.” |
+| **Session runs 60–90 minutes** | **Invented Phase 3.** Removed. Live copy says “a focused session on location.” |
+| **Full usage rights — print, post, sell the car with it** | **Invented Phase 2.** Licensing grant removed. Live copy says print-ready files / usage terms written into the commercial quote. Do not put a grant back until the contract matches. |
+| **Reply to inquiries "usually within a day"** | Written Phase 5, deliberately soft (“usually”). Still on `thanks.html`. |
+| **Most clients choose $50–100** | ✅ Confirmed by Clark 2026-08-12. Still the only price on the site. |
+| **Commercial work is custom-quoted** | ✅ Confirmed by Clark 2026-08-12. |
 
-| Claim | Where it appears | Status |
-|---|---|---|
-| **First edits back within 48 hours** | index (stat row, promise points, offer list), services (step 03, what's included), about (step 03) | **Invented Phase 2.** Appears 6× — the most-repeated promise on the site. |
-| **25–40 fully edited frames** | index (offer list), services (what's included) | **Invented Phase 2.** |
-| **Session runs 60–90 minutes** | services (step 02) | **Invented Phase 3.** |
-| **Full usage rights — print, post, sell the car with it** | index (promise points, offer list), services (what's included) | **Invented Phase 2.** A licensing term, not just copy. |
-| **Reply to inquiries "usually within a day"** | thanks.html | Written Phase 5, deliberately soft ("usually"). |
-| **Most clients choose $50–100** | services only | ✅ Confirmed by Clark 2026-08-12. |
-| **Commercial work is custom-quoted** | services, contact, index | ✅ Confirmed by Clark 2026-08-12. |
-
-If Clark can't hold 48-hour turnaround, that is the single highest-priority copy
-change on the site — it is stated six times and a missed delivery on a paid
-commercial job is the kind of thing that ends a fleet contract.
+If Clark can hold a 48-hour turnaround, that is the single highest-priority
+number to restore — it was the most-repeated promise on the site.
 
 ## Still blank
 
@@ -31,12 +28,13 @@ commercial job is the kind of thing that ends a fleet contract.
   conversion drag on audience #2.
 - **Testimonials / client logos** — none exist yet. No placeholder was invented;
   the site has zero social proof by design rather than by oversight.
-- **Domain** — `revsnapmedia.com` is hardcoded in canonicals, OG tags, JSON-LD
-  and sitemap. Purchase still unconfirmed (Phase 1 checkbox is still open).
+- **Domain** — `revsnapmedia.com` is still the intended production host in
+  canonicals, OG tags, JSON-LD and sitemap. Purchase still unconfirmed (Phase 1
+  checkbox is still open). After buying it, run `python3 tools/set_site_url.py`.
 
 ## Vehicle identification
 
-Captions and alt text were audited this phase against the actual frames.
+Captions and alt text were audited against the actual frames.
 Confirmed from badges/bodywork visible in the photo: Ford Mustang GT (S650),
 Porsche 911 GT3 (991), **Porsche 718 Cayman GT4 RS** (badge legible on the mirror
 — previously mislabelled as a plain GT4), Lexus SC (SC300 vs SC400 not
@@ -46,20 +44,19 @@ Removed as unverifiable guesses: "Yamaha R1", "BMW S 1000 RR", "Lexus SC300",
 "Mount Timpanogos", "Alpine loop", "Provo" as a shoot location.
 
 Still worth Clark confirming: the 4 Series Gran Coupe call, and the
-`subcategory` split on the Cars gallery (Exotics 4 / Builds 28 / Events 1) that
+`subcategory` split on the Cars gallery (Exotics 4 / Builds 29) that
 Phase 3 made without model names.
 
-## Two privacy items in published photos
+## Privacy
 
-Neither is a copy problem, so neither was changed — both are Clark's call:
+**Done (Phase 6):** plate/address sweep. Identifiable plates and the house
+number on `cars/023` were blurred in the `Assets/` masters and regenerated.
+The homepage Cars tile moved from `cars/010` (bystander-dominated) to `cars/033`.
 
-1. **`images/cars/023`** — the car's **license plate is legible** ("704 DRA").
-   This is a client's plate on a public marketing site. EXIF/GPS was scrubbed for
-   exactly this class of reason. Used on the homepage grid and in the portfolio.
-2. **`images/cars/010`** — a **bystander's face is clearly identifiable**, wearing
-   a shirt with a business name on it. Used as the Cars category tile on the
-   homepage. Shot at a public meet, so there's no legal problem, but it's a
-   stranger fronting a commercial page.
+**Still Clark's call — not touched:**
 
-Fixes if wanted: a light plate blur on 023, and either a crop or a different
-frame for the Cars tile.
+1. **`images/cars/010`** — a bystander's face is clearly identifiable, wearing
+   a shirt with a business name. Still in the portfolio grid, no longer the
+   homepage Cars tile.
+2. **`images/motorcycles/062`** — a second identifiable bystander.
+3. One rider's shirt text worth Clark's eye (noted in `content/final-critique.md`).

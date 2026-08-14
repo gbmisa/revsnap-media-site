@@ -85,6 +85,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
 }
 
 body {
@@ -386,9 +387,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .nav__cta { display: none; }
 
-/* Booking CTA persists in the desktop nav — CLAUDE.md wants owners to never
-   hunt for how to book. Sized down from the full .btn so it reads as a nav
-   element, not a second hero button. */
+/* Desktop booking CTA — sized down so it reads as nav, not a second hero button. */
 @media (min-width: 861px) {
   .nav__cta { display: inline-flex; padding: 0.65rem 1.35rem; font-size: 0.75rem; }
 }
@@ -617,9 +616,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .statement-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
 }
 
-/* Full-width credibility strip — cramped into a half-column its labels wrap.
-   Every current use is exactly 3 items, so a 2-up grid always strands the
-   third alone; stack to one column instead until 3-up comfortably fits. */
+/* Three-item strip: stack until 3-up fits so the last item is never stranded. */
 .stat-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -975,8 +972,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding-top: calc(var(--nav-h) + clamp(3rem, 8vw, 6rem));
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
 }
-/* The intro band already opens the section with breathing room; a full
-   .section--tight top padding right after it stacks two gaps into one. */
 .page-intro + .section--tight { padding-top: clamp(1.5rem, 4vw, 3rem); }
 .page-intro__lead { margin-top: var(--s-5); max-width: 56ch; }
 .page-intro--split {
