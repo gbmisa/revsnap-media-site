@@ -8,5 +8,6 @@ exclude:
   - tools
   - PLAN.md
   - CLAUDE.md
+  - FOR-CLARK.md
   - README.md
   - netlify.toml
