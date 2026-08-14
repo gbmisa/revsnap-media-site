@@ -7,7 +7,7 @@
     "height": 1600,
     "orientation": "portrait",
     "src": "images/cars/001",
-    "alt": "Macro detail of a chrome badge reading \u201cGT California Special\u201d on a car's grille, tree branches reflected in the polished chrome.",
+    "alt": "Macro detail of a chrome badge reading “GT California Special” on a car's grille, tree branches reflected in the polished chrome.",
     "_from": "cars/001",
     "subcategory": "builds"
   },
@@ -43,9 +43,9 @@
     "height": 1600,
     "orientation": "portrait",
     "src": "images/cars/004",
-    "alt": "Close side view of a magenta Porsche 718 Cayman GT4 showing its side intake and blue centre-lock wheels.",
+    "alt": "Close side view of a magenta Porsche 718 Cayman GT4 RS, its side intake and blue centre-lock wheels lit by afternoon sun.",
     "_from": "cars/022",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "exotics"
   },
   {
@@ -82,7 +82,7 @@
     "src": "images/cars/007",
     "alt": "A black Ford Mustang GT parked at dusk outside a stone-fronted storefront, its bodywork catching warm light from the shop windows.",
     "_from": "cars/025",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "builds"
   },
   {
@@ -107,7 +107,7 @@
     "src": "images/cars/009",
     "alt": "A row of classic muscle cars, including a dark maroon coupe, parked outside a stone-fronted building at a car meet.",
     "_from": "cars/027",
-    "subcategory": "events"
+    "subcategory": "builds"
   },
   {
     "id": "cars-010",
@@ -119,7 +119,7 @@
     "src": "images/cars/010",
     "alt": "A white Porsche 911 GT3 with its headlights on at a car meet, a spectator standing beside it.",
     "_from": "cars/028",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "exotics"
   },
   {
@@ -190,9 +190,9 @@
     "height": 1067,
     "orientation": "landscape",
     "src": "images/cars/016",
-    "alt": "A black BMW 4 Series coupe on a mountain pull-out, with alpenglow lighting the ridgeline of Mount Timpanogos behind it.",
+    "alt": "A black BMW 4 Series Gran Coupe on a mountain pull-out, alpenglow burning along the ridgeline behind it.",
     "_from": "cars/063",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "builds"
   },
   {
@@ -215,9 +215,9 @@
     "height": 1600,
     "orientation": "portrait",
     "src": "images/cars/018",
-    "alt": "A black BMW 4 Series seen low from the rear quarter, storm cloud overhead and last light burning on the ridgeline behind it.",
+    "alt": "A black BMW 4 Series Gran Coupe seen low from the rear quarter, storm cloud overhead and last light burning on the ridgeline behind it.",
     "_from": "cars/065",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "builds"
   },
   {
@@ -252,9 +252,9 @@
     "height": 1067,
     "orientation": "landscape",
     "src": "images/cars/021",
-    "alt": "A white Lexus SC300 at night with its headlights burning through the dark, city lights beyond the fence line.",
+    "alt": "A silver Lexus SC at night with its headlights burning through the dark, city lights beyond the fence line.",
     "_from": "cars/079",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "builds"
   },
   {
@@ -277,9 +277,9 @@
     "height": 1067,
     "orientation": "landscape",
     "src": "images/cars/023",
-    "alt": "Rear view of a white Lexus SC300 at night, tail lights and brake glow spilling across the road behind it.",
+    "alt": "Rear view of a silver Lexus SC at night, tail lights and brake glow spilling across the road behind it.",
     "_from": "cars/081",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark",
+    "alt_status": "draft — model names to be confirmed by Clark",
     "subcategory": "builds"
   },
   {
@@ -542,9 +542,9 @@
     "height": 1067,
     "orientation": "landscape",
     "src": "images/motorcycles/013",
-    "alt": "Macro detail of a green BMW S 1000 RR headlight with its running light lit.",
+    "alt": "Macro detail of a green BMW sportbike's headlight with its running light lit.",
     "_from": "motorcycles/013",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark"
+    "alt_status": "draft — model names to be confirmed by Clark"
   },
   {
     "id": "motorcycles-014",
@@ -609,9 +609,9 @@
     "height": 1066,
     "orientation": "landscape",
     "src": "images/motorcycles/019",
-    "alt": "A blue Yamaha R1 parked under warm lamps outside a brick building at night.",
+    "alt": "A blue sportbike parked under warm lamps outside a brick building at night.",
     "_from": "motorcycles/019",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark"
+    "alt_status": "draft — model names to be confirmed by Clark"
   },
   {
     "id": "motorcycles-020",
@@ -687,9 +687,9 @@
     "height": 1600,
     "orientation": "portrait",
     "src": "images/motorcycles/026",
-    "alt": "A white sportbike silhouetted on an empty parking deck as the sun breaks the horizon behind it.",
+    "alt": "A white sportbike silhouetted on an empty parking deck with a low sun burning on the horizon behind it.",
     "_from": "motorcycles/030",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark"
+    "alt_status": "draft — model names to be confirmed by Clark"
   },
   {
     "id": "motorcycles-027",
@@ -767,7 +767,7 @@
     "src": "images/motorcycles/033",
     "alt": "Two riders sitting on the roof of a lit glass pavilion at blue hour, their sportbikes parked below.",
     "_from": "motorcycles/037",
-    "alt_status": "draft \u2014 model names to be confirmed by Clark"
+    "alt_status": "draft — model names to be confirmed by Clark"
   },
   {
     "id": "motorcycles-034",

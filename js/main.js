@@ -145,7 +145,8 @@
     var prevBtn = lb.querySelector("[data-lightbox-prev]");
     var nextBtn = lb.querySelector("[data-lightbox-next]");
     var capEl = lb.querySelector("[data-lightbox-cap]");
-    var sourceEl = lb.querySelector("[data-lightbox-source]");
+    var avifSourceEl = lb.querySelector("[data-lightbox-source-avif]");
+    var webpSourceEl = lb.querySelector("[data-lightbox-source-webp]");
     var imgEl = lb.querySelector("[data-lightbox-img] img");
     var sizes = [400, 800, 1200, 1600];
 
@@ -160,7 +161,8 @@
     function render(trigger) {
       var base = trigger.getAttribute("data-src");
       var alt = trigger.getAttribute("data-alt") || "";
-      sourceEl.setAttribute("srcset", srcset(base, "webp"));
+      avifSourceEl.setAttribute("srcset", srcset(base, "avif"));
+      webpSourceEl.setAttribute("srcset", srcset(base, "webp"));
       imgEl.setAttribute("srcset", srcset(base, "jpg"));
       imgEl.src = base + "-1600.jpg";
       imgEl.alt = alt;

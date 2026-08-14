@@ -13,6 +13,8 @@
 <meta property="og:description" content="Exotics, builds, and motorcycles photographed on location across Utah County and the Salt Lake Valley.">
 <meta property="og:image" content="https://revsnapmedia.com/images/cars/007-1600.jpg">
 <link rel="canonical" href="https://revsnapmedia.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%2308080a'/><text x='90' y='110' font-family='Archivo, sans-serif' font-size='120' font-weight='800' fill='%23ff5a1f' text-anchor='middle' dominant-baseline='middle' letter-spacing='-4'>RS</text></svg>">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +28,11 @@
 <!-- Hero is art-directed: a landscape frame on desktop, a portrait frame on
      phones (a 3:2 source centre-cropped into a tall viewport shows a sliver of
      car and a lot of asphalt). Preloads are media-scoped to match. -->
-<link rel="preload" as="image" media="(min-width: 641px)" href="images/cars/007-1600.webp"
-      imagesrcset="images/cars/007-800.webp 800w, images/cars/007-1200.webp 1200w, images/cars/007-1600.webp 1600w"
+<link rel="preload" as="image" media="(min-width: 641px)" href="images/cars/007-1600.avif" type="image/avif"
+      imagesrcset="images/cars/007-800.avif 800w, images/cars/007-1200.avif 1200w, images/cars/007-1600.avif 1600w"
       imagesizes="100vw" fetchpriority="high">
-<link rel="preload" as="image" media="(max-width: 640px)" href="images/cars/018-800.webp"
-      imagesrcset="images/cars/018-800.webp 800w, images/cars/018-1200.webp 1200w"
+<link rel="preload" as="image" media="(max-width: 640px)" href="images/cars/018-800.avif" type="image/avif"
+      imagesrcset="images/cars/018-800.avif 800w, images/cars/018-1200.avif 1200w"
       imagesizes="100vw" fetchpriority="high">
 
 <script type="application/ld+json">
@@ -73,21 +75,25 @@
 <main id="main">
 
   <!-- ── Hero ─────────────────────────────────────────────────────────── -->
-  <!-- COPY: draft -->
   <section class="hero">
     <div class="hero__media" data-parallax>
       <picture>
+        <source type="image/avif" media="(max-width: 640px)"
+                srcset="images/cars/018-800.avif 800w, images/cars/018-1200.avif 1200w" sizes="100vw">
         <source type="image/webp" media="(max-width: 640px)"
                 srcset="images/cars/018-800.webp 800w, images/cars/018-1200.webp 1200w" sizes="100vw">
         <source type="image/jpeg" media="(max-width: 640px)"
                 srcset="images/cars/018-800.jpg 800w, images/cars/018-1200.jpg 1200w" sizes="100vw">
+        <source type="image/avif"
+                srcset="images/cars/007-800.avif 800w, images/cars/007-1200.avif 1200w, images/cars/007-1600.avif 1600w"
+                sizes="100vw">
         <source type="image/webp"
                 srcset="images/cars/007-800.webp 800w, images/cars/007-1200.webp 1200w, images/cars/007-1600.webp 1600w"
                 sizes="100vw">
         <img src="images/cars/007-1600.jpg"
              srcset="images/cars/007-800.jpg 800w, images/cars/007-1200.jpg 1200w, images/cars/007-1600.jpg 1600w"
              sizes="100vw" width="1600" height="1069"
-             alt="A black Ford Mustang GT parked at dusk outside a stone-fronted storefront, its bodywork catching warm light from the shop windows."
+             alt="A dark performance coupe photographed on location at dusk, its bodywork holding the last of the light."
              fetchpriority="high" decoding="async">
       </picture>
     </div>
@@ -112,7 +118,6 @@
   </section>
 
   <!-- ── Positioning ──────────────────────────────────────────────────── -->
-  <!-- COPY: draft -->
   <section class="section">
     <div class="wrap statement-grid">
       <div class="reveal">
@@ -120,7 +125,7 @@
         <p class="statement">Cars are chrome, paint and light. They need <em>darkness</em> to glow.</p>
       </div>
       <div class="reveal" data-delay="1">
-        <p class="lead measure-wide">Every shoot is scouted for light before it's scouted for scenery. Canyon roads at last light, sodium-lit storefronts after close, empty decks at blue hour — locations chosen because of what they do to a body line, not because they photograph well empty.</p>
+        <p class="lead measure-wide">Most cars get photographed in a parking lot at noon. Yours won't. The hour gets picked before the location does, and the location gets picked for what it does to your body lines — which is the whole distance between a snapshot of a car and a photograph of one.</p>
       </div>
     </div>
 
@@ -156,54 +161,60 @@
       <div class="work-grid reveal" data-delay="1">
         <a class="tile" href="portfolio.html#motorcycles">
           <picture>
+            <source type="image/avif" srcset="images/motorcycles/026-400.avif 400w, images/motorcycles/026-800.avif 800w, images/motorcycles/026-1200.avif 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)">
             <source type="image/webp" srcset="images/motorcycles/026-400.webp 400w, images/motorcycles/026-800.webp 800w, images/motorcycles/026-1200.webp 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)">
             <img src="images/motorcycles/026-800.jpg" srcset="images/motorcycles/026-400.jpg 400w, images/motorcycles/026-800.jpg 800w, images/motorcycles/026-1200.jpg 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)" width="1067" height="1600" loading="lazy" decoding="async"
-                 alt="A white sportbike silhouetted on an empty parking deck as the sun breaks the horizon behind it.">
+                 alt="A white sportbike silhouetted on an empty parking deck with a low sun burning on the horizon behind it.">
           </picture>
-          <p class="tile__cap">Sunset deck <span>· Provo</span></p>
+          <p class="tile__cap">Parking deck <span>· Low sun</span></p>
         </a>
 
         <a class="tile tile--wide" href="portfolio.html#cars">
           <picture>
+            <source type="image/avif" srcset="images/cars/016-400.avif 400w, images/cars/016-800.avif 800w, images/cars/016-1200.avif 1200w, images/cars/016-1600.avif 1600w" sizes="(min-width: 900px) 58vw, calc(100vw - 2.5rem)">
             <source type="image/webp" srcset="images/cars/016-400.webp 400w, images/cars/016-800.webp 800w, images/cars/016-1200.webp 1200w, images/cars/016-1600.webp 1600w" sizes="(min-width: 900px) 58vw, calc(100vw - 2.5rem)">
             <img src="images/cars/016-1200.jpg" srcset="images/cars/016-400.jpg 400w, images/cars/016-800.jpg 800w, images/cars/016-1200.jpg 1200w, images/cars/016-1600.jpg 1600w" sizes="(min-width: 900px) 58vw, calc(100vw - 2.5rem)" width="1600" height="1067" loading="lazy" decoding="async"
-                 alt="A black BMW 4 Series coupe on a mountain pull-out, with alpenglow lighting the ridgeline of Mount Timpanogos behind it.">
+                 alt="A black BMW 4 Series Gran Coupe on a mountain pull-out, alpenglow burning along the ridgeline behind it.">
           </picture>
-          <p class="tile__cap">BMW 4 Series <span>· Alpine loop</span></p>
+          <p class="tile__cap">BMW 4 Series <span>· Alpenglow</span></p>
         </a>
 
         <a class="tile" href="portfolio.html#motorcycles">
           <picture>
+            <source type="image/avif" srcset="images/motorcycles/033-400.avif 400w, images/motorcycles/033-800.avif 800w, images/motorcycles/033-1200.avif 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)">
             <source type="image/webp" srcset="images/motorcycles/033-400.webp 400w, images/motorcycles/033-800.webp 800w, images/motorcycles/033-1200.webp 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)">
             <img src="images/motorcycles/033-800.jpg" srcset="images/motorcycles/033-400.jpg 400w, images/motorcycles/033-800.jpg 800w, images/motorcycles/033-1200.jpg 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)" width="1067" height="1600" loading="lazy" decoding="async"
                  alt="Two riders sitting on the roof of a lit glass pavilion at blue hour, their sportbikes parked below.">
           </picture>
-          <p class="tile__cap">Blue hour <span>· Two-up</span></p>
+          <p class="tile__cap">Blue hour <span>· Riders</span></p>
         </a>
 
         <a class="tile" href="portfolio.html#cars">
           <picture>
+            <source type="image/avif" srcset="images/cars/004-400.avif 400w, images/cars/004-800.avif 800w, images/cars/004-1200.avif 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)">
             <source type="image/webp" srcset="images/cars/004-400.webp 400w, images/cars/004-800.webp 800w, images/cars/004-1200.webp 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)">
             <img src="images/cars/004-800.jpg" srcset="images/cars/004-400.jpg 400w, images/cars/004-800.jpg 800w, images/cars/004-1200.jpg 1200w" sizes="(min-width: 900px) 28vw, calc(50vw - 1.5rem)" width="1067" height="1600" loading="lazy" decoding="async"
-                 alt="Close side view of a magenta Porsche 718 Cayman GT4 showing its side intake and blue centre-lock wheels.">
+                 alt="Close side view of a magenta Porsche 718 Cayman GT4 RS, its side intake and blue centre-lock wheels lit by afternoon sun.">
           </picture>
-          <p class="tile__cap">Porsche 718 <span>· Rear quarter</span></p>
+          <p class="tile__cap">718 Cayman GT4 RS <span>· Side intake</span></p>
         </a>
 
         <a class="tile tile--wide" href="portfolio.html#motorcycles">
           <picture>
+            <source type="image/avif" srcset="images/motorcycles/013-400.avif 400w, images/motorcycles/013-800.avif 800w, images/motorcycles/013-1200.avif 1200w" sizes="(min-width: 900px) 28vw, calc(100vw - 2.5rem)">
             <source type="image/webp" srcset="images/motorcycles/013-400.webp 400w, images/motorcycles/013-800.webp 800w, images/motorcycles/013-1200.webp 1200w" sizes="(min-width: 900px) 28vw, calc(100vw - 2.5rem)">
             <img src="images/motorcycles/013-800.jpg" srcset="images/motorcycles/013-400.jpg 400w, images/motorcycles/013-800.jpg 800w, images/motorcycles/013-1200.jpg 1200w" sizes="(min-width: 900px) 28vw, calc(100vw - 2.5rem)" width="1600" height="1067" loading="lazy" decoding="async"
-                 alt="Macro detail of a green BMW S 1000 RR headlight with its running light lit.">
+                 alt="Macro detail of a green BMW sportbike's headlight with its LED running light lit.">
           </picture>
-          <p class="tile__cap">S 1000 RR <span>· Detail</span></p>
+          <p class="tile__cap">BMW <span>· Headlight</span></p>
         </a>
 
         <a class="tile tile--wide" href="portfolio.html#cars">
           <picture>
+            <source type="image/avif" srcset="images/cars/023-400.avif 400w, images/cars/023-800.avif 800w, images/cars/023-1200.avif 1200w" sizes="(min-width: 900px) 28vw, calc(100vw - 2.5rem)">
             <source type="image/webp" srcset="images/cars/023-400.webp 400w, images/cars/023-800.webp 800w, images/cars/023-1200.webp 1200w" sizes="(min-width: 900px) 28vw, calc(100vw - 2.5rem)">
             <img src="images/cars/023-800.jpg" srcset="images/cars/023-400.jpg 400w, images/cars/023-800.jpg 800w, images/cars/023-1200.jpg 1200w" sizes="(min-width: 900px) 28vw, calc(100vw - 2.5rem)" width="1600" height="1067" loading="lazy" decoding="async"
-                 alt="Rear view of a white Lexus SC300 at night, tail lights and brake glow spilling across the road behind it.">
+                 alt="Rear view of a silver Lexus SC at night, tail lights and brake glow spilling across the road behind it.">
           </picture>
           <p class="tile__cap">Lexus SC <span>· After dark</span></p>
         </a>
@@ -218,7 +229,6 @@
         <div class="sec-head__text">
           <p class="eyebrow">Portfolio</p>
           <h2 class="h2">Two garages</h2>
-          <!-- COPY: draft -->
           <p class="lead">Four wheels and two wheels are lit differently, framed differently, and shot differently. They get their own rooms.</p>
         </div>
       </div>
@@ -226,29 +236,29 @@
       <div class="split reveal" data-delay="1">
         <a class="cat" href="portfolio.html#cars">
           <picture>
-            <source type="image/webp" srcset="images/cars/010-800.webp 800w, images/cars/010-1200.webp 1200w, images/cars/010-1600.webp 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)">
-            <img src="images/cars/010-1200.jpg" srcset="images/cars/010-800.jpg 800w, images/cars/010-1200.jpg 1200w, images/cars/010-1600.jpg 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)" width="1600" height="1069" loading="lazy" decoding="async"
-                 alt="A white Porsche 911 GT3 with its headlights on at a car meet, a spectator standing beside it.">
+            <source type="image/avif" srcset="images/cars/033-800.avif 800w, images/cars/033-1200.avif 1200w, images/cars/033-1600.avif 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)">
+            <source type="image/webp" srcset="images/cars/033-800.webp 800w, images/cars/033-1200.webp 1200w, images/cars/033-1600.webp 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)">
+            <img src="images/cars/033-1200.jpg" srcset="images/cars/033-800.jpg 800w, images/cars/033-1200.jpg 1200w, images/cars/033-1600.jpg 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)" width="1067" height="1600" loading="lazy" decoding="async"
+                 alt="Close view of a blue sports car's front bumper and headlight, lit by warm string lighting outside a restaurant entrance at night.">
           </picture>
           <div class="cat__body">
             <span class="cat__n">01</span>
             <h3 class="cat__title">Cars</h3>
-            <!-- COPY: draft -->
-            <p class="cat__desc">Exotics and supercars, modified builds, and meets.</p>
+            <p class="cat__desc">Exotics and supercars, modified builds, and the meets they show up to.</p>
             <span class="link">See the cars <span class="arrow" aria-hidden="true">→</span></span>
           </div>
         </a>
 
         <a class="cat" href="portfolio.html#motorcycles">
           <picture>
+            <source type="image/avif" srcset="images/motorcycles/019-800.avif 800w, images/motorcycles/019-1200.avif 1200w, images/motorcycles/019-1600.avif 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)">
             <source type="image/webp" srcset="images/motorcycles/019-800.webp 800w, images/motorcycles/019-1200.webp 1200w, images/motorcycles/019-1600.webp 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)">
             <img src="images/motorcycles/019-1200.jpg" srcset="images/motorcycles/019-800.jpg 800w, images/motorcycles/019-1200.jpg 1200w, images/motorcycles/019-1600.jpg 1600w" sizes="(min-width: 800px) 48vw, calc(100vw - 2.5rem)" width="1600" height="1066" loading="lazy" decoding="async"
-                 alt="A blue Yamaha R1 parked under warm lamps outside a brick building at night.">
+                 alt="A blue sportbike parked under warm lamps outside a brick building at night.">
           </picture>
           <div class="cat__body">
             <span class="cat__n">02</span>
             <h3 class="cat__title">Motorcycles</h3>
-            <!-- COPY: draft -->
             <p class="cat__desc">Sportbikes, cruisers, and the details that sell them.</p>
             <span class="link">See the bikes <span class="arrow" aria-hidden="true">→</span></span>
           </div>
@@ -258,14 +268,13 @@
   </section>
 
   <!-- ── The promise ──────────────────────────────────────────────────── -->
-  <!-- COPY: draft -->
   <!-- Pricing framing per CLAUDE.md. The $50–100 figure lives on services.html
        under owner shoots only — this page is mixed-audience, so no number here. -->
   <section class="section promise">
     <div class="wrap">
       <p class="eyebrow eyebrow--plain reveal" style="justify-content:center;color:var(--signal)">Owner shoots</p>
       <h2 class="promise__quote reveal">You pay what the work is worth to you — <em>after you've seen it.</em></h2>
-      <p class="lead promise__sub reveal" data-delay="1">No deposit, no package tiers, no invoice before the gallery lands. You look at the photos of your car first, then you pay what the work is worth to you. That's a promise I can only make because of how the photos come out.</p>
+      <p class="lead promise__sub reveal" data-delay="1">No deposit. No package tiers. No invoice before the gallery lands. You see the photos of your car first — then you decide what the shoot was worth. That's the whole pricing conversation.</p>
 
       <div class="promise__points reveal" data-delay="2">
         <div class="point">
@@ -281,6 +290,8 @@
           <p>First edited selects back within 48 hours of the shoot.</p>
         </div>
       </div>
+
+      <p class="reveal" data-delay="3" style="margin-top:clamp(2.5rem,5vw,4rem)"><a class="btn btn--primary" href="contact.html">Book a shoot</a></p>
     </div>
   </section>
 
@@ -295,12 +306,11 @@
         <a class="link" href="services.html">All services <span class="arrow" aria-hidden="true">→</span></a>
       </div>
 
-      <!-- COPY: draft -->
       <div class="offers reveal" data-delay="1">
         <article class="offer offer--lead">
           <p class="offer__kicker">For owners</p>
-          <h3 class="h3">Own the car? Let's shoot it.</h3>
-          <p class="lead small">A single-car session at a location scouted for your paint and your body lines. Book it, show up clean, drive home with a gallery.</p>
+          <h3 class="h3">Your car, shot the way you see it.</h3>
+          <p class="lead small">A single-car session at a location picked for your paint and your body lines — and an hour picked for the light it gives them.</p>
           <ul class="offer__list">
             <li>Location scouted to the car, not the calendar</li>
             <li>25–40 fully edited frames, high-res and web-sized</li>
@@ -313,7 +323,7 @@
         <article class="offer">
           <p class="offer__kicker">For business</p>
           <h3 class="h3">Dealerships, rental fleets &amp; shops</h3>
-          <p class="lead small">A repeatable content pipeline for inventory that has to move: consistent framing, consistent grade, predictable turnaround your listings team can plan around.</p>
+          <p class="lead small">A repeatable content pipeline for inventory that has to move: consistent framing, consistent grade, and a turnaround your listings team can build a schedule around.</p>
           <ul class="offer__list">
             <li>Listing and marketing sets, shot to a fixed spec</li>
             <li>Recurring weekly or per-delivery scheduling</li>
@@ -327,9 +337,9 @@
   </section>
 
   <!-- ── Closing CTA ──────────────────────────────────────────────────── -->
-  <!-- COPY: draft -->
   <section class="cta-band">
     <picture>
+      <source type="image/avif" srcset="images/cars/021-1200.avif 1200w, images/cars/021-1600.avif 1600w" sizes="100vw">
       <source type="image/webp" srcset="images/cars/021-1200.webp 1200w, images/cars/021-1600.webp 1600w" sizes="100vw">
       <img src="images/cars/021-1600.jpg" srcset="images/cars/021-1200.jpg 1200w, images/cars/021-1600.jpg 1600w" sizes="100vw" width="1600" height="1067" loading="lazy" decoding="async" alt="">
     </picture>
@@ -350,11 +360,10 @@
     <div class="footer__top">
       <div>
         <a class="wordmark" href="index.html"><b>RevSnap</b><span>Media</span></a>
-        <!-- COPY: draft -->
         <p class="footer__blurb">Automotive photography by Clark Farmer. Based in Provo, Utah — working across Utah County and the Salt Lake Valley.</p>
       </div>
       <div>
-        <h3>Site</h3>
+        <h2>Site</h2>
         <nav class="footer__nav" aria-label="Footer">
           <a href="portfolio.html">Portfolio</a>
           <a href="services.html">Services</a>
@@ -363,7 +372,7 @@
         </nav>
       </div>
       <div>
-        <h3>Get in touch</h3>
+        <h2>Get in touch</h2>
         <nav class="footer__nav" aria-label="Contact">
           <a href="contact.html">Book a shoot</a>
           <a href="contact.html#commercial">Commercial &amp; fleet</a>

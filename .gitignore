@@ -12,3 +12,8 @@ Thumbs.db
 
 # Node (Playwright test scripts live outside the repo, in scratch space)
 node_modules/
+
+# Python
+tools/.venv/
+__pycache__/
+*.pyc

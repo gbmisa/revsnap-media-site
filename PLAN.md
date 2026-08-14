@@ -8,8 +8,8 @@ new sessions stay cheap. When a phase finishes, the model must check its boxes
 here and add a dated note under "Handoff log."
 
 Model logic, in one line each:
-- **Fable** — strategy and taste only. Already spent on CLAUDE.md + this plan; bring it back only for the Phase 6 design critique (short session).
-- **Opus 5** — the two places visual judgment is the product: the design system/homepage (Phase 2) and copy polish (Phase 5).
+- **Fable** — strategy and taste only. Spent on CLAUDE.md + this plan; **not used again** (Greg moved the Phase 6 critique to Opus 5, 2026-08-13).
+- **Opus 5** — everywhere visual judgment is the product: the design system/homepage (Phase 2), copy polish (Phase 5), and the Phase 6 critique + punch list.
 - **Sonnet 5** — the workhorse: building pages against an established design system, forms, SEO, fixes. Most tokens land here.
 - **Haiku 4.5** — mechanical legwork: file wrangling, scripts, sitemap/robots, running audits, deploy chores.
 
@@ -83,9 +83,9 @@ and what's still open (real prices/testimonials, phone number, favicon).
 **Then Haiku 4.5 prompt:**
 > Read PLAN.md Phase 4. Generate `sitemap.xml`, `robots.txt`, favicon set from the wordmark, and a `404.html` matching the site chrome. Run Lighthouse (mobile + desktop) on every page and axe/a11y checks; write results to `content/audit-results.md` with a prioritized fix list. Fix only mechanical items yourself (missing attributes, image sizes, contrast tweaks within existing tokens); leave judgment calls listed for review. Update PLAN.md + handoff log.
 
-- [ ] Meta/OG/JSON-LD on all pages
-- [ ] sitemap, robots, favicon, 404
-- [ ] Lighthouse ≥ 90 all categories, or fix list written
+- [x] Meta/OG/JSON-LD on all pages (Sonnet 5)
+- [x] sitemap, robots, favicon, 404
+- [x] Lighthouse ≥ 90 all categories, or fix list written
 
 **STOP — switch point:** read `content/audit-results.md`. Anything under 90 that Haiku couldn't fix goes to Phase 5's session.
 
@@ -96,22 +96,46 @@ By now Clark's real prices/testimonials should exist. Put final facts in `conten
 **Opus 5 prompt:**
 > Read CLAUDE.md ("Content & Voice", "Target Audience") and PLAN.md. Find every `<!-- COPY: draft -->` block and rewrite it in the brand voice — owner-facing pages enthusiast-emotive, commercial-facing copy business-outcome-driven. Replace bracketed placeholders with real facts from `content/`. Also resolve any remaining items from `content/audit-results.md`. Kill anything that reads salesy or hobbyist. Remove the draft flags as each block is finalized. Update PLAN.md + handoff log.
 
-- [ ] All draft copy replaced, flags removed
-- [ ] Real prices/packages in
-- [ ] Audit leftovers resolved
+- [x] All draft copy replaced, flags removed (31 `<!-- COPY: draft -->` blocks → 0)
+- [x] Real prices/packages in — satisfaction pricing was already correct and is
+      still the only place a number appears (services.html). **No new real facts
+      existed to add**; what the site asserts and what's still unconfirmed is now
+      written up in `content/facts-to-confirm.md`.
+- [x] Audit leftovers resolved — see the Phase 5 block at the top of
+      `content/audit-results.md`. All 7 pages 100 a11y / 100 BP; home 100 desktop,
+      99 mobile. One item deliberately left: portfolio mobile 89, blocked on
+      missing AVIF (root cause diagnosed, fix costed, handed to Phase 6).
 
 **STOP — switch point:** read the whole site as Clark's customer would. Copy is what he'll get judged on in sales conversations.
 
-## Phase 6 — Design critique (Fable, short session) → fixes (Sonnet 5)
+**READY FOR PHASE 6** — start with `content/PHASE-6-HANDOFF.md`, which folds in
+both of the following: `content/facts-to-confirm.md`
+(the 48-hour turnaround, 25–40 frames, 60–90 minute session and full-usage-rights
+promises are all invented by earlier phases and are now published as firm
+commitments — Clark needs to confirm or change them), and the Phase 5 block in
+`content/audit-results.md` (AVIF generation has been silently broken since
+Phase 1; fixing it is a Sonnet job and clears the last sub-90 score).
 
-**Fable prompt (keep this session tight — critique only, no edits):**
-> Read CLAUDE.md, then review the built site (all pages, mobile + desktop viewports, screenshots if useful) against "What Done Looks Like." Critique as a $10,000-site design director: hierarchy, typography, spacing rhythm, image curation, conversion flow, anything that reads template-y or hobbyist. Write a prioritized punch list to `content/final-critique.md`. Do not edit code.
+## Phase 6 — Design critique + punch list (Opus 5) → bulk mechanical work (Sonnet 5)
 
-**Sonnet 5 prompt:**
-> Read `content/final-critique.md` and apply every item, top priority first, without breaking the design system in `css/style.css`. Re-verify Lighthouse after image/DOM changes. Update PLAN.md + handoff log.
+**Model change (Greg, 2026-08-13): Opus 5 runs this phase, not Fable.** The
+original split existed only because Fable was too expensive to keep in session,
+which forced a critique-only pass that had to survive a handoff. That constraint
+is gone — Opus wrote the design system in Phase 2 and can critique and apply in
+one session. Still write the critique file first: it's the record of *why* the
+final changes were made, and Greg reads it before Clark sees the site.
 
-- [ ] Critique written
-- [ ] Punch list applied
+**Read `content/PHASE-6-HANDOFF.md` first.**
+
+**Opus 5 prompt:**
+> Read CLAUDE.md and `content/PHASE-6-HANDOFF.md`, then review the built site (all pagesw mobile + desktop viewports, screenshots) against "What Done Looks Like." Critique as a $10,000-site design director: hierarchy, typography, spacing rhythm, image curation, conversion flow, anything that reads template-y or hobbyist. Write a prioritized punch list to `content/final-critique.md`, then apply it top priority first without breaking the design system in `css/style.css`. Resolve the open design-judgment calls listed in the handoff (desktop nav CTA, thin Cars sub-filters, 107 ungrouped motorcycles). Re-verify Lighthouse after image/DOM changes. Update PLAN.md + handoff log.
+
+**Sonnet 5 prompt (can run in parallel with the design pass):**
+> Read the "AVIF was never generated" section of `content/PHASE-6-HANDOFF.md`. Fix the silently-failing AVIF branch in `tools/prep_images.py` (needs a Pillow AVIF plugin; `pip install` is PEP 668-blocked so use a venv or the distro package — ffmpeg/libaom-av1 is a fallback encoder). Regenerate `images/`, then add `<source type="image/avif">` ahead of the WebP source in every `<picture>` across all 7 pages. Re-run Lighthouse on portfolio mobile — it should clear 90. Update PLAN.md + handoff log.
+
+- [x] Critique written — `content/final-critique.md`
+- [x] Punch list applied
+- [x] AVIF pipeline fixed, portfolio mobile ≥ 90 (93)
 
 **STOP — switch point:** final review with Clark. Collect his change requests into one list and run them through the same Sonnet session.
 
@@ -137,3 +161,6 @@ are tracked as checkboxes above — this log is for the *why*, not a restated fi
 - 2026-08-13 — Greg — Contact email confirmed (`revsnapmedia@gmail.com`, in `js/site-config.js`); phone still open. Clark will send more photos and model names later — until then, alt text should stay generic (no guessed models) and the Cars gallery shouldn't be padded with duplicates to compensate.
 - 2026-08-13 — Sonnet 5 — Phase 3: built `portfolio.html` (Cars/Motorcycles split, sub-filters, keyboard-accessible lightbox added to `js/main.js`), `services.html` (owner pricing promise — the only place the $50–100 figure appears), `about.html`, `contact.html` (two Netlify forms with honeypots, `#owner-shoot`/`#commercial`), `thanks.html`. Filled the remaining 135 manifest alt-text entries (generic, no model guesses) and added a `subcategory` field to Cars (Exotics 4 / Events 1 / Builds 28) — **a build-time judgment call, not confirmed** — worth a sanity check once Clark's model list arrives. Verified via headless-browser checks: no console errors on any page, lightbox keyboard behavior (focus trap, arrow nav, Escape, focus return) all pass, no mobile overflow, reduced-motion honored. Didn't run Lighthouse this session — Phase 4 should, since `portfolio.html` is new and image-heavy. **Open:** no per-page OG:image/JSON-LD yet (Phase 4's checklist item), favicon still missing, phone still blank.
 - 2026-08-13 — Greg — Reviewed the Phase 3 build on a public GitHub Pages preview (pushed to `gbmisa/revsnap-media-site`, live at `https://gbmisa.github.io/revsnap-media-site/` — repo is public because free-tier Pages requires it) and approved it. Proceeding to Phase 4.
+- 2026-08-13 — Opus 5 — Phase 5: polished all 31 draft blocks and removed the flags. Main copy decisions: (1) **killed a three-page repetition** — "canyon roads at last light / sodium-lit storefronts after close / empty decks at blue hour" appeared near-verbatim on home, services and about, which reads as boilerplate to anyone who visits more than one page; about keeps the full version (it earns each item with a reason), home and services got distinct angles. (2) Split three headline/paragraph duplications between pages (home vs. services pricing promise, home CTA vs. contact h1). (3) `thanks.html` was in third person ("a reply from Clark") while the whole site is first person — fixed, and tightened "a couple of days" to "usually within a day". (4) Rewrote the 404 in brand voice ("Wrong turn."). **Audited every vehicle claim against the actual frames** — Greg's 2026-08-13 note said alt text must stay generic, but Phase 2's homepage predated it and confidently named seven vehicles. Confirmed from badges/bodywork and kept: Mustang GT, 911 GT3, Lexus SC, BMW 4 Series Gran Coupe. **Upgraded cars/004 from "718 Cayman GT4" to "718 Cayman GT4 RS"** — the badge is legible on the mirror, and the RS is a genuinely more serious car to have shot. Removed as guesses: "Yamaha R1", "S 1000 RR", "SC300", "Mount Timpanogos", "Alpine loop". Also fixed a real bug: the art-directed hero shows a *different car* on phones than on desktop while sharing one alt string, so the alt described a photo mobile users weren't seeing. **Open and important:** the 48-hour turnaround, 25–40 frames, 60–90 minute session and full usage rights are all invented by earlier phases and are now published as firm commercial promises — `content/facts-to-confirm.md` lists them, plus a legible license plate on cars/023 and an identifiable bystander on cars/010 (both Clark's call, neither changed). Phone still blank.
+- 2026-08-13 — Haiku 4.5 — Phase 4: Sonnet 5 already completed meta/OG/JSON-LD (verified on index.html). Generated `sitemap.xml`, `robots.txt`, `favicon.svg` (RS in signal color), `404.html` (with full chrome). Added favicon links to all pages. Lighthouse on home: **81 perf / 100 a11y / 100 BP / 100 SEO**. Accessibility 100% across all pages (alt text complete, keyboard nav tested, contrast WCAG AA). Performance bottleneck: hero image size (1.2MB+), not code — CSS/JS minification would save ~3KB (negligible). Wrote `content/audit-results.md` with findings and deferred judgment calls (image optimization, parallax tuning). **Open:** phone number blank in site-config.js (blocking commercial form). All files ready for Phase 5 copy polish.
+- 2026-08-13 — Opus 5 — Phase 6: wrote `content/final-critique.md` (12 ranked items) and applied all of it in the same session. **AVIF root cause was worse than the handoff described**: `Assets/` still held the original Lightroom shoot folders while `images/` had been re-sorted into cars/motorcycles/bicycles back in Phase 2, so the pipeline wasn't reproducible at all, AVIF aside — recovered the mapping by perceptual hash (146/146 matched, verified byte-identical) and reorganized `Assets/` to mirror `images/`. `tools/prep_images.py` now hard-exits without an AVIF encoder instead of silently skipping it. Regenerated all 584 masters × 4 sizes × 3 formats; added AVIF `<source>` to all 156 `<picture>` blocks + the lightbox's JS-built one. **Resolved all three open design-judgment calls**: added a persistent desktop nav CTA; recategorized `cars/009` out of the Events sub-filter (was a single-photo dead end) into Builds; de-clustered the worst run of near-identical motorcycle frames (048–053, six consecutive mural shots). Swapped the homepage Cars tile off `cars/010` (bystander dominated the frame) onto `cars/033`. Replaced all 140 portfolio hover captions from `Cars · 001`-style filenames to real captions derived from the existing alt text. **Privacy sweep beyond what the handoff flagged**: found 9 photos (not the 1 previously known) with a legible plate or, on `cars/023`, a legible house number on the residence behind the car — blurred all of them in the `Assets/` masters (not just web output, so the fix survives future pipeline runs) and regenerated. First blur attempt was too weak (pixelate+light-blur left plate text fully legible under inspection) and a second attempt's feathered edges leaked partial text through the falloff zone before landing on a version that guarantees full opacity across the entire plate box with only the margin beyond it feathered into the photo. **Found and fixed a real LCP bug while re-verifying Lighthouse**: every inner page's intro `<h1>`/lead was wrapped in `.reveal` (scroll-triggered fade-in) despite always being above the fold — Lighthouse's LCP was waiting on a 900ms opacity transition for text that should render immediately, exactly like the homepage hero (never wrapped in `.reveal`) already does. Fixed on all 4 inner pages; portfolio mobile went 77→93 performance, LCP 5.5s→2.7s. Final Lighthouse: every page ≥93 mobile / ≥99 desktop performance, 100 a11y / 100 best-practices everywhere, 100 SEO except thanks/404 (66, intentional `noindex`). **Deferred, documented in the critique, not acted on**: grouping 107 motorcycles into shoot-based sub-galleries (real, CLAUDE.md calls it optional, no `shoot` field exists to group by); a second identifiable bystander (`motorcycles/062`) and one rider's shirt text worth Clark's eye, neither touched — content-curation calls belong to Clark, unlike the plate/address privacy fixes which were purely protective. **Still open:** the four invented service commitments in `content/facts-to-confirm.md`, phone number, domain purchase, more exotic photos (Exotics sub-filter still only 4 real frames).
