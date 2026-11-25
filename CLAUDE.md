@@ -71,6 +71,7 @@ Owner-facing copy can be enthusiast-fluent and emotive; fleet/dealer-facing copy
 - **Accessibility**: WCAG AA contrast everywhere, real alt text describing car/setting, keyboard-navigable lightbox, `prefers-reduced-motion` honored.
 - **Performance**: Lighthouse ≥ 90 on all four categories, mobile-first. Image-heavy pages are the risk — budget them deliberately.
 - **Forms**: Netlify Forms with honeypot, `thanks.html` redirect, same as Dylan site.
+- **Code block size**: no single block of code (a `<script>` block, a JS file, a CSS file, a function) should exceed 250 lines. Split oversized blocks into smaller, purpose-scoped units rather than letting one file or function accumulate everything.
 
 ## Local SEO
 
